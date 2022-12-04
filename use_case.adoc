@@ -1,0 +1,25 @@
+// setting both opts and svg-type to make it work with both the Kroki plugin and the Asciidoctor Diagram plugin
+[plantuml,demo,svg,opts="inline",svg-type="inline"]
+----
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor customer
+actor clerk
+rectangle checkout {
+  customer -- (checkout)
+  (help) .> (checkout) : <<extends>>
+  (checkout) -- clerk
+
+  note right of (help)
+    Condition
+    {help required}
+  end note
+
+  (checkout) .> (payment) : <<include>>
+
+}
+@enduml
+----
+
+
